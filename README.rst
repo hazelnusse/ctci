@@ -16,6 +16,12 @@ To build from git sources::
     $ cmake ..
     $ cmake --build .
 
+The code is organized by chapter, with a test and benchmark subdirectory for
+each chapter. Unit tests are implemented using `boost.ut
+<https://github.com/boost-ext/ut>`_. Benchmarks are implemented with Google
+`benchmark <https://github.com/google/benchmark>`_ for some exercises. Each
+chapter has a README.rst with any per exercise notes.
+
 
 Running the tests
 ~~~~~~~~~~~~~~~~~
