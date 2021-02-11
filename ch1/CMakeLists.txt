@@ -9,6 +9,9 @@ target_include_directories(is_unique
 target_compile_options(is_unique
     PRIVATE -fstack-usage
 )
+target_compile_features(is_unique
+    PUBLIC cxx_std_17               # Need for std::string_view
+)
 
 if(CTCI_BUILD_TESTS)
     add_subdirectory(test)

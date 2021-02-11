@@ -14,19 +14,8 @@ if (CTCI_BUILD_TESTS)
     set(BOOST_UT_BUILD_EXAMPLES OFF)
     set(BOOST_UT_BUILD_TESTS OFF)
     FetchContent_MakeAvailable(boost.ut)
+    target_compile_features(boost.ut INTERFACE cxx_std_20)
 endif()
-
-FetchContent_Declare(fmt
-    URL https://github.com/fmtlib/fmt/archive/7.1.3.tar.gz
-    URL_HASH SHA256=5cae7072042b3043e12d53d50ef404bbb76949dad1de368d7f993a15c8c05ecc
-)
-set(FMT_DOC OFF)
-set(FMT_INSTALL OFF)
-set(FMT_TEST OFF)
-set(FMT_FUZZ OFF)
-set(FMT_CUDA_TEST OFF)
-set(FMT_OS OFF)
-FetchContent_MakeAvailable(fmt)
 
 if (CTCI_BUILD_BENCHMARKS)
     FetchContent_Declare(benchmark
