@@ -7,8 +7,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(CTCI_BUILD_BENCHMARKS "Build benchmark examples" ON)
 option(CTCI_BUILD_TESTS "Build tests" ON)
+if(CTCI_BUILD_TESTS)
+    include(CTest)
+endif()
 
 include(cmake/Externals.cmake)
 
 add_subdirectory(ch1)
-message(STATUS "CMAKE_CXX_COMPILE_FEATURES = ${CMAKE_CXX_COMPILE_FEATURES}")
