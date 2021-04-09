@@ -1,11 +1,9 @@
-#include <is_unique.hpp>
+#include <ctci/is_unique_bitfield.hpp>
 
-#include <string_view>
-
-namespace is_unique
+namespace ctci
 {
 
-bool using_bitfield(std::string_view sv)
+bool is_unique_bitfield(std::string_view sv)
 {
     const std::size_t size = sv.size();
     if (size_guarantees_unique(size))

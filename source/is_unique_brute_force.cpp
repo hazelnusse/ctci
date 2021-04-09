@@ -1,9 +1,9 @@
-#include <is_unique.hpp>
+#include <ctci/is_unique_brute_force.hpp>
 
-namespace is_unique
+namespace ctci
 {
 
-bool brute_force(std::string_view sv)
+bool is_unique_brute_force(std::string_view sv)
 {
     const std::size_t size = sv.size();
     if (size_guarantees_unique(size))
