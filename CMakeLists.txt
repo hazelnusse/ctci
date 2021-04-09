@@ -1,16 +1,23 @@
-cmake_minimum_required(VERSION 3.13...3.19)
-project(ctci
-    DESCRIPTION "Cracking the Coding Interview, 6th edition"
-    LANGUAGES CXX
+cmake_minimum_required(VERSION 3.13...3.20 FATAL_ERROR)
+
+project(
+  ctci
+  VERSION 1.0
+  DESCRIPTION "Cracking the Coding Interview, 6th edition"
+  LANGUAGES CXX
 )
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-option(CTCI_BUILD_BENCHMARKS "Build benchmark examples" ON)
-option(CTCI_BUILD_TESTS "Build tests" ON)
-if(CTCI_BUILD_TESTS)
-    include(CTest)
-endif()
+macro(ctci_add_library CTCI_LIBRARY_NAME)
+    add_library(${CTCI_LIBRARY_NAME} ${ARGN})
+    set_target_properties(${CTCI_LIBRARY_NAME}
+        PROPERTIES
+            CXX_STANDARD 20
+            CXX_EXTENSIONS OFF
+    )
+    target_include_directories(${CTCI_LIBRARY_NAME} PUBLIC include)
+endmacro()
 
-include(cmake/Externals.cmake)
-
-add_subdirectory(ch1)
+ctci_add_library(is_unique_bitfield source/is_unique_bitfield.cpp)
+ctci_add_library(is_unique_brute_force source/is_unique_brute_force.cpp)
+ctci_add_library(is_unique_sort source/is_unique_sort.cpp)
+ctci_add_library(reverse source/reverse.cpp)
