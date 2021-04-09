@@ -1,12 +1,12 @@
-#include <is_unique.hpp>
+#include <ctci/is_unique_sort.hpp>
 
 #include <algorithm>
 #include <string>
 
-namespace is_unique
+namespace ctci
 {
 
-bool using_sort(std::string_view sv)
+bool is_unique_sort(std::string_view sv)
 {
     const std::size_t size = sv.size();
     if (size_guarantees_unique(size))
