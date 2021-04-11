@@ -42,3 +42,8 @@ ctci_add_test(is_unique_brute_force_test is_unique.test.cpp
 ctci_add_test(reverse_test reverse.test.cpp
     reverse
 )
+
+ctci_add_test(check_permutation_test check_permutation.test.cpp
+    check_permutation_array
+    check_permutation_map
+)
