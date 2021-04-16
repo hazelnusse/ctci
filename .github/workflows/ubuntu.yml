@@ -27,7 +27,7 @@ jobs:
 
       - name: Install ninja
         run: |
-          apt install ninja
+          sudo apt install ninja-build
 
       - name: configure
         run: cmake -G Ninja -S test -B build -DENABLE_TEST_COVERAGE=1 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=gcc-10 -DCMAKE_CXX_COMPILER=g++-10

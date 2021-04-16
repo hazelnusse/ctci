@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -25,8 +25,8 @@ jobs:
 
       - name: Install format dependencies
         run: |
-          brew install clang-format
-          pip3 install cmake_format==0.6.11 pyyaml
+          sudo apt install clang-format-10 ninja-build
+          pip3 install cmakelang pyyaml
 
       - name: configure
         run: cmake -G Ninja -S test -B build
