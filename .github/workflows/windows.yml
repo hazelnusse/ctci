@@ -25,10 +25,10 @@ jobs:
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
       - name: configure
-        run: cmake -S test -B build -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S test -B build
 
       - name: build
-        run: cmake --build build -v
+        run: cmake --build build --config Release -v -j4
 
       - name: test
-        run: ctest --test-dir build -C Release --output-on-failure
+        run: ctest --test-dir build-test --build-config Release --output-on-failure
