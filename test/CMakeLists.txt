@@ -10,7 +10,6 @@ include(../cmake/get_CPM.cmake)
 enable_testing()
 
 cpmaddpackage("gh:boost-ext/ut#ffe66dd9414f73ed252c5dc815f56bf4d53929ca")
-message("ut_SOURCE_DIR = ${ut_SOURCE_DIR}")
 cpmaddpackage("gh:TheLartians/Format.cmake@1.7.0")
 cpmaddpackage(NAME ctci SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 
