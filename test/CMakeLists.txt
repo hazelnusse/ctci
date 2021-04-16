@@ -9,9 +9,11 @@ include(../cmake/get_CPM.cmake)
 
 enable_testing()
 
-cpmaddpackage("gh:boost-ext/ut#ffe66dd9414f73ed252c5dc815f56bf4d53929ca")
 cpmaddpackage("gh:TheLartians/Format.cmake@1.7.0")
 cpmaddpackage(NAME ctci SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
+
+add_library(ut INTERFACE)
+target_include_directories(ut INTERFACE ${CMAKE_CURRENT_LIST_DIR})
 
 macro(ctci_add_test CTCI_TEST_NAME CTCI_TEST_SOURCE)
   add_executable(${CTCI_TEST_NAME} ${CTCI_TEST_SOURCE})
@@ -49,3 +51,6 @@ ctci_add_test(check_permutation_test check_permutation.test.cpp
               check_permutation_array check_permutation_map)
 
 ctci_add_test(urlify_test urlify.test.cpp urlify)
+
+ctci_add_test(palindrome_permutation_test palindrome_permutation.test.cpp
+              palindrome_permutation)
