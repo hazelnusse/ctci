@@ -4,17 +4,13 @@ project(
   ctci
   VERSION 1.0
   DESCRIPTION "Cracking the Coding Interview, 6th edition"
-  LANGUAGES CXX
-)
+  LANGUAGES CXX)
 
 macro(ctci_add_library CTCI_LIBRARY_NAME)
-    add_library(${CTCI_LIBRARY_NAME} ${ARGN})
-    set_target_properties(${CTCI_LIBRARY_NAME}
-        PROPERTIES
-            CXX_STANDARD 20
-            CXX_EXTENSIONS OFF
-    )
-    target_include_directories(${CTCI_LIBRARY_NAME} PUBLIC include)
+  add_library(${CTCI_LIBRARY_NAME} ${ARGN})
+  set_target_properties(${CTCI_LIBRARY_NAME} PROPERTIES CXX_STANDARD 20
+                                                        CXX_EXTENSIONS OFF)
+  target_include_directories(${CTCI_LIBRARY_NAME} PUBLIC include)
 endmacro()
 
 ctci_add_library(is_unique_bitfield source/is_unique_bitfield.cpp)

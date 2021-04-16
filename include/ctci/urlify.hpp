@@ -2,9 +2,8 @@
 
 #include <string>
 
-namespace ctci
-{
+namespace ctci {
 
-void urlify(std::string& s, std::string::size_type true_size);
+void urlify(std::string &s, std::string::size_type true_size);
 
 }

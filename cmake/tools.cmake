@@ -9,10 +9,12 @@ endif()
 
 include(${CMAKE_CURRENT_LIST_DIR}/get_CPM.cmake)
 
-# enables sanitizers support using the the `USE_SANITIZER` flag available values are: Address,
-# Memory, MemoryWithOrigins, Undefined, Thread, Leak, 'Address;Undefined'
+# enables sanitizers support using the the `USE_SANITIZER` flag available values
+# are: Address, Memory, MemoryWithOrigins, Undefined, Thread, Leak,
+# 'Address;Undefined'
 if(USE_SANITIZER OR USE_STATIC_ANALYZER)
-  CPMAddPackage("gh:StableCoder/cmake-scripts#1f822d1fc87c8d7720c074cde8a278b44963c354")
+  cpmaddpackage(
+    "gh:StableCoder/cmake-scripts#1f822d1fc87c8d7720c074cde8a278b44963c354")
 
   if(USE_SANITIZER)
     include(${cmake-scripts_SOURCE_DIR}/sanitizers.cmake)
@@ -22,35 +24,29 @@ if(USE_SANITIZER OR USE_STATIC_ANALYZER)
     if("clang-tidy" IN_LIST USE_STATIC_ANALYZER)
       set(CLANG_TIDY
           ON
-          CACHE INTERNAL ""
-      )
+          CACHE INTERNAL "")
     else()
       set(CLANG_TIDY
           OFF
-          CACHE INTERNAL ""
-      )
+          CACHE INTERNAL "")
     endif()
     if("iwyu" IN_LIST USE_STATIC_ANALYZER)
       set(IWYU
           ON
-          CACHE INTERNAL ""
-      )
+          CACHE INTERNAL "")
     else()
       set(IWYU
           OFF
-          CACHE INTERNAL ""
-      )
+          CACHE INTERNAL "")
     endif()
     if("cppcheck" IN_LIST USE_STATIC_ANALYZER)
       set(CPPCHECK
           ON
-          CACHE INTERNAL ""
-      )
+          CACHE INTERNAL "")
     else()
       set(CPPCHECK
           OFF
-          CACHE INTERNAL ""
-      )
+          CACHE INTERNAL "")
     endif()
 
     include(${cmake-scripts_SOURCE_DIR}/tools.cmake)
@@ -61,7 +57,8 @@ if(USE_SANITIZER OR USE_STATIC_ANALYZER)
   endif()
 endif()
 
-# enables CCACHE support through the USE_CCACHE flag possible values are: YES, NO or equivalent
+# enables CCACHE support through the USE_CCACHE flag possible values are: YES,
+# NO or equivalent
 if(USE_CCACHE)
-  CPMAddPackage("gh:TheLartians/Ccache.cmake@1.2.3")
+  cpmaddpackage("gh:TheLartians/Ccache.cmake@1.2.3")
 endif()

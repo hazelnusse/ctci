@@ -1,7 +1,6 @@
 #pragma once
 
-namespace ctci
-{
+namespace ctci {
 
 void reverse(char *s);
 
