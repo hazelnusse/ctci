@@ -1,9 +1,6 @@
 .. image:: https://github.com/hazelnusse/ctci/workflows/MacOS/badge.svg
   :alt: macOS build status
   :target: https://github.com/hazelnusse/ctci/actions/workflows/macos.yml
-.. image:: https://github.com/hazelnusse/ctci/workflows/Style/badge.svg
-  :alt: Style build status
-  :target: https://github.com/hazelnusse/ctci/actions/workflows/style.yml
 .. image:: https://github.com/hazelnusse/ctci/workflows/Windows/badge.svg
   :alt: Windows build status
   :target: https://github.com/hazelnusse/ctci/actions/workflows/windows.yml
