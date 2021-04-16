@@ -24,6 +24,8 @@ jobs:
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
       - uses: seanmiddleditch/gha-setup-ninja@master
+        with:
+          version: 1.10.2
 
       - name: Install format dependencies
         run: |
