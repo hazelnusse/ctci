@@ -5,28 +5,28 @@
 
 TEST_CASE("SimpleReverse") {
   {
-    char input[] = "abc";
+    std::string input{"abc"};
     ctci::reverse(input);
-    CHECK(std::string(input) == "cba");
+    CHECK(input == "cba");
   }
   {
-    char input[] = "vaginabutthole";
+    std::string input{"vaginabutthole"};
     ctci::reverse(input);
-    CHECK(std::string(input) == "elohttubanigav");
+    CHECK(input == "elohttubanigav");
   }
   {
-    char input[] = "taint";
+    std::string input{"taint"};
     ctci::reverse(input);
-    CHECK(std::string(input) == "tniat");
+    CHECK(input == "tniat");
   }
   {
-    char input[] = "";
+    std::string input;
     ctci::reverse(input);
-    CHECK(std::string(input) == "");
+    CHECK(input == "");
   }
   {
-    char input[] = "P";
+    std::string input{"P"};
     ctci::reverse(input);
-    CHECK(std::string(input) == "P");
+    CHECK(input == "P");
   }
 }
