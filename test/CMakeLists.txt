@@ -47,3 +47,7 @@ ctci_add_test(check_permutation_test check_permutation.test.cpp
     check_permutation_array
     check_permutation_map
 )
+
+ctci_add_test(urlify_test urlify.test.cpp
+    urlify
+)
