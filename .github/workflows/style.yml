@@ -23,9 +23,11 @@ jobs:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
+      - uses: seanmiddleditch/gha-setup-ninja@master
+
       - name: Install format dependencies
         run: |
-          sudo apt install clang-format-10 ninja-build
+          sudo apt install clang-format-10
           pip3 install cmakelang pyyaml
 
       - name: configure
