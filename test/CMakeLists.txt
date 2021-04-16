@@ -17,7 +17,14 @@ CPMAddPackage(NAME ctci SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 macro(ctci_add_test CTCI_TEST_NAME CTCI_TEST_SOURCE)
     add_executable(${CTCI_TEST_NAME} ${CTCI_TEST_SOURCE})
     target_link_libraries(${CTCI_TEST_NAME} PUBLIC doctest_with_main ${ARGN})
-    target_compile_options(${CTCI_TEST_NAME} PUBLIC -Wall -Wpedantic -Wextra -Werror)
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+        target_compile_options(${CTCI_TEST_NAME} PUBLIC -Wall -Wpedantic -Wextra -Werror)
+    elseif(MSVC)
+        foreach(lib ${ARGN})
+            target_compile_options(${lib} PUBLIC /W4 /WX)
+        endforeach()
+        target_compile_definitions(${CTCI_TEST_NAME} PUBLIC DOCTEST_CONFIG_USE_STD_HEADERS)
+    endif()
     set_target_properties(${CTCI_TEST_NAME}
         PROPERTIES
             CXX_STANDARD 20
