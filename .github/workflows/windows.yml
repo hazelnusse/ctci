@@ -24,8 +24,10 @@ jobs:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
+      - uses: seanmiddleditch/gha-setup-ninja@master
+
       - name: configure
-        run: cmake -S test -B build
+        run: cmake -G Ninja -S test -B build -DCMAKE_BUILD_TYPE=Release
 
       - name: build
         run: cmake --build build -v
