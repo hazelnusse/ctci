@@ -21,3 +21,4 @@ ctci_add_library(check_permutation_map source/check_permutation_map.cpp)
 ctci_add_library(check_permutation_array source/check_permutation_array.cpp)
 
 ctci_add_library(urlify source/urlify.cpp)
+ctci_add_library(palindrome_permutation source/palindrome_permutation.cpp)
