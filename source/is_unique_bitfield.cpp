@@ -16,7 +16,7 @@ bool is_unique_bitfield(std::string_view sv) {
   unsigned char ar[num_bytes] = {0};
   for (auto c : sv) {
     std::size_t byte = static_cast<unsigned char>(c) / bits_per_char;
-    std::size_t bit = 1u << (c % bits_per_char);
+    std::size_t bit = std::size_t{1} << (c % bits_per_char);
     if (ar[byte] & bit) {
       return false;
     }

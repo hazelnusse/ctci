@@ -4,7 +4,7 @@
 
 static constexpr std::size_t bits_per_char =
     sizeof(std::string_view::value_type) * CHAR_BIT;
-static constexpr std::size_t num_unique_chars = 1u << bits_per_char;
+static constexpr std::size_t num_unique_chars = std::size_t{1} << bits_per_char;
 
 inline bool size_guarantees_nonunique(std::size_t size) {
   return size > num_unique_chars;
