@@ -1,34 +1,32 @@
 #include <ctci/reverse.hpp>
 
-#include <doctest/doctest.h>
+#include <boost/ut.hpp>
 #include <string>
-// This should not be needed but is due to weird doctest bug, see issue #126
-#include <iostream>
 
-TEST_CASE("SimpleReverse") {
+int main() {
   {
     std::string input{"abc"};
     ctci::reverse(input);
-    CHECK(input == std::string{"cba"});
+    boost::ut::expect(input == "cba");
   }
   {
     std::string input{"vaginabutthole"};
     ctci::reverse(input);
-    CHECK(input == std::string{"elohttubanigav"});
+    boost::ut::expect(input == "elohttubanigav");
   }
   {
     std::string input{"taint"};
     ctci::reverse(input);
-    CHECK(input == std::string{"tniat"});
+    boost::ut::expect(input == "tniat");
   }
   {
     std::string input;
     ctci::reverse(input);
-    CHECK(input == std::string{""});
+    boost::ut::expect(input == "");
   }
   {
     std::string input{"P"};
     ctci::reverse(input);
-    CHECK(input == std::string{"P"});
+    boost::ut::expect(input == "P");
   }
 }

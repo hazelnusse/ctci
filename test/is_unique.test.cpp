@@ -2,7 +2,7 @@
 #include <ctci/is_unique_brute_force.hpp>
 #include <ctci/is_unique_sort.hpp>
 
-#include <doctest/doctest.h>
+#include <boost/ut.hpp>
 
 TEST_CASE("SimpleUnique") {
   for (auto const s : {"", "1", "12", "0123456789"}) {
