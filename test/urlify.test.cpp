@@ -1,6 +1,6 @@
 #include <ctci/urlify.hpp>
 
-#include <doctest/doctest.h>
+#include <boost/ut.hpp>
 #include <string>
 
 TEST_CASE("SimpleUrlifyTest") {
