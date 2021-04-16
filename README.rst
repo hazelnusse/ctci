@@ -1,3 +1,19 @@
+.. image:: https://github.com/hazelnusse/ctci/workflows/MacOS/badge.svg
+  :alt: macOS build status
+  :target: https://github.com/hazelnusse/ctci/actions/workflows/macos.yml
+.. image:: https://github.com/hazelnusse/ctci/workflows/Style/badge.svg
+  :alt: Style build status
+  :target: https://github.com/hazelnusse/ctci/actions/workflows/style.yml
+.. image:: https://github.com/hazelnusse/ctci/workflows/Windows/badge.svg
+  :alt: Windows build status
+  :target: https://github.com/hazelnusse/ctci/actions/workflows/windows.yml
+.. image:: https://github.com/hazelnusse/ctci/workflows/Ubuntu/badge.svg
+  :alt: Ubuntu build status
+  :target: https://github.com/hazelnusse/ctci/actions/workflows/ubuntu.yml
+.. image:: https://codecov.io/gh/hazelnusse/ctci/branch/main/graph/badge.svg
+  :alt: Code coverage
+  :target: https://codecov.io/gh/hazelnusse/ctci
+
 {ctci}
 ======
 This repository contains C++ implementations of the exercises in `Cracking the
@@ -5,27 +21,12 @@ coding interview, 6th edition <https://www.crackingthecodinginterview.com>`_.
 It serves primarily as a place to exercise modern C++, modern CMake, and modern
 C++ tooling.
 
-Building the code
-~~~~~~~~~~~~~~~~~
-To build from git sources::
+Building the code and run tests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Do this::
 
     $ git clone https://github.com/hazelnusse/ctci.git
     $ cd ctci
-    $ mkdir build
-    $ cd build
-    $ cmake ..
-    $ cmake --build .
-
-The code is organized by chapter, with a test and benchmark subdirectory for
-each chapter. Unit tests are implemented using `boost.ut
-<https://github.com/boost-ext/ut>`_. Benchmarks are implemented with Google
-`benchmark <https://github.com/google/benchmark>`_ for some exercises. Each
-chapter has a README.rst with any per exercise notes.
-
-
-Running the tests
-~~~~~~~~~~~~~~~~~
-Tests are enabled by default and can be run with CTest (from the build
-directory)::
-
-    $ ctest
+    $ cmake -S test -B build-test
+    $ cmake --build --build-test
+    $ ctest --test-dir build-test
