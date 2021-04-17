@@ -19,6 +19,6 @@ ctci_add_library(is_unique_sort source/is_unique_sort.cpp)
 ctci_add_library(reverse source/reverse.cpp)
 ctci_add_library(check_permutation_map source/check_permutation_map.cpp)
 ctci_add_library(check_permutation_array source/check_permutation_array.cpp)
-
 ctci_add_library(urlify source/urlify.cpp)
 ctci_add_library(palindrome_permutation source/palindrome_permutation.cpp)
+ctci_add_library(one_away source/one_away.cpp)

@@ -17,10 +17,7 @@ target_include_directories(ut INTERFACE ${CMAKE_CURRENT_LIST_DIR})
 
 macro(ctci_add_test CTCI_TEST_NAME CTCI_TEST_SOURCE)
   add_executable(${CTCI_TEST_NAME} ${CTCI_TEST_SOURCE})
-  target_link_libraries(
-    ${CTCI_TEST_NAME}
-    PUBLIC ut
-    PRIVATE ${ARGN})
+  target_link_libraries(${CTCI_TEST_NAME} PRIVATE ut ${ARGN})
   if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES
                                               "GNU")
     target_compile_options(${CTCI_TEST_NAME} PUBLIC -Wall -Wpedantic -Wextra
@@ -54,3 +51,5 @@ ctci_add_test(urlify_test urlify.test.cpp urlify)
 
 ctci_add_test(palindrome_permutation_test palindrome_permutation.test.cpp
               palindrome_permutation)
+
+ctci_add_test(one_away_test one_away.test.cpp one_away)
