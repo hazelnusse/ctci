@@ -53,3 +53,6 @@ ctci_add_test(palindrome_permutation_test palindrome_permutation.test.cpp
               palindrome_permutation)
 
 ctci_add_test(one_away_test one_away.test.cpp one_away)
+
+ctci_add_test(string_compression_test string_compression.test.cpp
+              string_compression)
